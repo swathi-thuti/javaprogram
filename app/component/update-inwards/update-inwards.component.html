@@ -1,0 +1,226 @@
+<p>update-inwards works!</p>
+
+<div class="container">
+  <div class="registration-form m-3 p-4">
+    <div class="row"><h2 class="mt-3">Inwards Updation Page</h2></div>
+
+    <form [formGroup]="updateInwardsForm" (ngSubmit)="updateStoreInwards()">
+      <div class = "row">
+        <div class = "col-md-6 mt-6">
+ <!--         <mat-form-field appearance="outline">
+            <input matInput  formControlName="productId" placeholder="Product Name enter" required="required"/>
+            <mat-label>Product Name</mat-label>
+            <mat-hint>Upto 30 characters</mat-hint>
+            <mat-icon matSuffix>sentiment-very-satisfied</mat-icon>
+          </mat-form-field>
+-->
+          <mat-form-field appearance="fill">
+            <mat-label>Product Name</mat-label>
+            <mat-select formControlName = "productId">
+              <mat-option *ngFor="let product of products" [value]="product.referenceId">
+                {{product.fullName}}
+              </mat-option>
+            </mat-select>
+            <mat-hint>Upto 30 characters</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class = "col-md-6">
+          <mat-form-field appearance="outline"><!--floatLabel = "always">-->
+            <input matInput formControlName="batchNo" placeholder="Enter Batch Number"  required="required"/>
+            <mat-label>Batch Number</mat-label>
+            <mat-hint>Upto 30 characters</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class = "row" mt-3>
+        <div class = "col-md-6 mt-6">
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="batchQty" placeholder="Enter Batch Quantity" required="required"/>
+            <mat-label> Batch Qty</mat-label>
+            <mat-hint>Upto 30 characters</mat-hint>
+            <mat-icon matSuffix>sentiment-very-satisfied</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class = "col-md-6">
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="mfgDate" placeholder="Enter Manufacturing Date dd/MM/yyyy"  required="required"/>
+            <mat-label>Manufacturing Date</mat-label>
+            <mat-hint>Upto 30 characters</mat-hint>
+          </mat-form-field>
+
+
+          <!--         <mat-form-field>
+                     <input matInput formControlName="mfgDate" [matDatepicker]="picker1" placeholder="Choose Manufacturing date">
+                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                     <mat-datepicker #picker1></mat-datepicker>
+                   </mat-form-field>
+         -->
+
+        </div>
+      </div>
+      <div class = "row">
+        <div class = "col-md-6 mt-6">
+          <mat-form-field appearance="outline"><!--floatLabel = "always">-->
+            <input matInput formControlName="retestDate" placeholder="Enter Retest Date dd/MM/yyyy"  required="required"/>
+            <mat-label>Retest Date</mat-label>
+            <mat-hint>Upto 30 characters</mat-hint>
+          </mat-form-field>
+          <!--          <mat-form-field>
+                      <input matInput formControlName="retestDate" [matDatepicker]="picker" placeholder="Choose Retest date">
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+          -->
+        </div>
+        <div class = "col-md-6">
+          <mat-form-field appearance="outline"><!--floatLabel = "always">-->
+            <input type = "text" matInput formControlName="coaNumber" placeholder="Enter COA Number" required="required"/>
+            <mat-label>COA Number</mat-label>
+            <mat-hint>Upto 30 characters</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <button type = "button" mat-raised-button color = "accent" (click)="openStorageLocationsDialog()">Edit Storage Locations</button>
+      <div class = "row">
+        <div class = "col-md-6 mt-6"><h3>Storage Ref Id</h3></div>
+        <div class = "col-md-6 mt-6"><h3>Quantity</h3></div>
+      </div>
+      <div class = "row" *ngFor = "let storageLocation of storeStorageDetailsListFromDialog.storeStorageList">
+        <div class = "col-md-6 mt-6" style="border: 2px">
+          {{storageLocation?.storageRefId}}
+        </div>
+        <div class = "col-md-6 mt-6" style="border: 2px">
+          {{storageLocation?.qty}}
+        </div>
+      </div>
+      <div class = "row">
+        <div class = "col-md-6 mt-6">
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="storageConditions" placeholder="Enter Storage Conditions" required="required"/>
+            <mat-label>Storage Conditions</mat-label>
+            <mat-hint>Upto 30 characters</mat-hint>
+            <mat-icon matSuffix>sentiment-very-satisfied</mat-icon>
+          </mat-form-field>
+        </div>
+        <!--
+        <div class = "col-md-6">
+          <mat-form-field appearance="outline">
+            <input type = "text" matInput formControlName="storageLocation" placeholder="In how many Storage Locations to be kept" required="required"/>
+            <mat-label>Number of Storage Locations</mat-label>
+            <mat-hint>Upto 30 characters</mat-hint>
+          </mat-form-field>
+        </div>
+        -->
+      </div>
+      <!--
+      <div formArrayName = "storeStorageDetailsList">
+      <div formGroupName = "0" >
+      <div class = "row">
+        <div class = "col-md-6 mt-6 form-group">
+          <mat-form-field appearance="outline">
+            <input matInput formControlName = "storageRefId" placeholder="Enter Storage Ref Id" required="required"/>
+            <mat-label>Storage Ref Id</mat-label>
+            <mat-hint>Upto 30 characters</mat-hint>
+            <mat-icon matSuffix>sentiment-very-satisfied</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class = "col-md-6 form-group">
+          <mat-form-field appearance="outline">
+            <input type = "text" matInput formControlName = "qty" placeholder="Enter quantity" required="required"/>
+            <mat-label>Quantity</mat-label>
+            <mat-hint>Upto 30 characters</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      </div>
+      </div>
+      -->
+
+      <div class = "row">
+        <div class = "col-md-6 mt-6">
+          <mat-form-field appearance="outline">
+            <input matInput formControlName = "projectCode" placeholder="Enter project Code" required="required"/>
+            <mat-label>Project Code</mat-label>
+            <mat-hint>Upto 30 characters</mat-hint>
+            <mat-icon matSuffix>sentiment-very-satisfied</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class = "col-md-6">
+          <mat-form-field appearance="outline"><!--floatLabel = "always">-->
+            <input type = "text" matInput formControlName = "formula" placeholder="Enter Formula" required="required"/>
+            <mat-label>Formula</mat-label>
+            <mat-hint>Upto 30 characters</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class = "row">
+        <div class = "col-md-6 mt-6">
+          <mat-form-field appearance="outline">
+            <input matInput formControlName = "molecularWt" placeholder="Enter Molecular Wt" required="required"/>
+            <mat-label>Molecular Wt</mat-label>
+            <mat-hint>Upto 30 characters</mat-hint>
+            <mat-icon matSuffix>sentiment-very-satisfied</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class = "col-md-6">
+          <mat-form-field appearance="outline"><!--floatLabel = "always">-->
+            <input type = "text" matInput formControlName = "purityPercent" placeholder="Enter Purity %" required="required"/>
+            <mat-label>Purity %</mat-label>
+            <mat-hint>Upto 30 characters</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class = "row">
+        <div class = "col-md-6 mt-6">
+          <mat-form-field appearance="outline">
+            <input matInput formControlName = "chemicalStructureInfo" placeholder="Enter Chemical Structure Info" required="required"/>
+            <mat-label>Chemical Structure Info</mat-label>
+            <mat-hint>Upto 30 characters</mat-hint>
+            <mat-icon matSuffix>sentiment-very-satisfied</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class = "col-md-6">
+          <mat-form-field appearance="outline"><!--floatLabel = "always">-->
+            <input type = "text" matInput formControlName = "teamInformation" placeholder="Enter Team Information" required="required"/>
+            <mat-label>Team Information</mat-label>
+            <mat-hint>Upto 30 characters</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class = "row">
+        <div class = "col-md-6 mt-6">
+          <mat-form-field appearance="outline">
+            <input matInput formControlName = "casNumber" placeholder="Enter CAS Number" required="required"/>
+            <mat-label>CAS Number</mat-label>
+            <mat-hint>Upto 30 characters</mat-hint>
+            <mat-icon matSuffix>sentiment-very-satisfied</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class = "row">
+        <div class = "col-md-6 mt-6">
+          <mat-form-field appearance="outline">
+            <input matInput formControlName = "apiName" placeholder="Enter API Name" required="required"/>
+            <mat-label>API Name</mat-label>
+            <mat-hint>Upto 30 characters</mat-hint>
+            <mat-icon matSuffix>sentiment-very-satisfied</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class = "col-md-6">
+          <mat-form-field appearance="outline"><!--floatLabel = "always">-->
+            <input type = "text" matInput formControlName = "categoryType" placeholder="Enter Category Type" required="required"/>
+            <mat-label>Category Type</mat-label>
+          </mat-form-field>
+        </div>
+        <section>
+          <div class="example-label"></div>
+          <div class="example-button-row">
+            <button type = "submit" mat-raised-button color="primary" (click)="updateStoreInwards()">Update</button>
+            <button type = "button" mat-raised-button color="warn" (click)="cancelAllValues()">Cancel</button>
+          </div>
+        </section>
+      </div>
+    </form>
+  </div>
+</div>
+

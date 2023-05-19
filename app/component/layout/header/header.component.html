@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/">Inventory Management App</button>
+  <span class="example-spacer"></span>
+  <button class="btn icon-left btn-primary" mat-button [matMenuTriggerFor]="menu">{{user.userName}}</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
+</mat-toolbar>

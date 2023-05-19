@@ -1,0 +1,50 @@
+
+<div class="container-fluid px-4">
+  <div class="col-sm-12 col-lg-12">
+    <div style="text-align:center;">
+      <font color="blue" >Item Units Edit page </font></div>
+    <mat-card layout-align="center center" style="width: 50%" style="text-align: center;">
+    <form [formGroup]="frmUpdUnit" >
+      <div class="row mt-4">
+      <div class="col-md-4">
+          <!--<mat-card layout-align="center center" style="width: 50%" style="text-align: center;" > -->               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Enter shortCode" formControlName="shortCode" required="required"/>
+          <mat-label>Short Code</mat-label>
+        </mat-form-field>
+          <!--</mat-card>-->
+      </div>
+      <div class="col-md-4">
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-form-field appearance="outline">
+         <input matInput placeholder=" Enter DetailedName" formControlName="detailedName" required="required"/>
+          <mat-label>Detailed Name</mat-label>
+        </mat-form-field>
+      </div>
+      </div>
+
+      <div class="col-md-7 mt-4 text-end-right">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-raised-button color="primary"   type="submit"   (click)="updateDetailsItem()" style="margin-right:5px;">Update Units
+<!--
+          [disabled]="updateUnitForm.invalid
+-->
+        </button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<!--
+        <div class="col-md-20 mt-4 text-end">
+-->
+          <button routerLink="/listItemsUnits" mat-raised-button color="primary" style="margin-right:5px;"> Cancel</button>
+        <!--</div>-->
+      </div>
+    </form>
+
+
+    </mat-card>
+  </div>
+</div>
+

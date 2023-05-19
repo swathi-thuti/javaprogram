@@ -1,0 +1,31 @@
+<div class ="container-fluid px-4">
+  <div class ="col-sm-12 col-lg-12">
+    <form  [formGroup]="categoryForm">
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <mat-form-field>
+          <input  matInput placeholder="shortCode" formControlName="shortCode" (click)="duplicateShortCode()"  required>
+
+
+          <mat-error>short code is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field>
+          <input matInput placeholder="detailedName" formControlName="detailedName" required>
+          <mat-error> description is required</mat-error>
+        </mat-form-field>
+      </div>
+       </div>
+
+    <div class="col-md-3 mt-4 text-end">
+      <button mat-raised-button color="primary" type="submit" (click)="createCategoryVal()"> Save </button>
+    <div class="col-md-7 mt-4 text-end">
+      <button routerLink="/catList" mat-raised-button color="primary" type="submit" > Cancel </button>
+    </div>
+    </div>
+    </form>
+
+      </div>
+</div>
+

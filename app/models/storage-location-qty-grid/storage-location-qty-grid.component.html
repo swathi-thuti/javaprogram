@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Add Storage Locations and Quantities</h2>
+<mat-dialog-content>
+  <form [formGroup]="storageForm" (ngSubmit)="addStorageLocation()">
+    <div class = "row">
+      <div col = "col-md-5">
+        <mat-form-field appearance="outline">
+          <input type = "text" matInput  formControlName="storageRefId"  placeholder="Enter Storage RefId" required="required"/>
+          <mat-label>Storage Reference Id</mat-label>
+          <mat-hint>Upto 30 characters</mat-hint>
+        </mat-form-field></div>
+      <div col = "col-md-4">
+        <mat-form-field appearance="outline">
+          <input type = "text" matInput formControlName="qty" placeholder="Quantity" required="required"/>
+          <mat-label>Quantity</mat-label>
+          <mat-hint>Upto 30 characters</mat-hint>
+        </mat-form-field></div>
+      <div col = "col-md-3">
+        <button mat-raised-button color="accent">Add</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>Storage Ref Id</th>
+        <th>Quantity</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor = "let item of storeStorageList ">
+        <td>{{item.storageRefId}}</td>
+        <td>{{item.qty}}</td>
+        <td><button mat-raised-button color="danger" (click)="deleteStorageEntry(item)">Delete</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions style="padding-left: 350px;">
+  <button mat-button (click)=" onNoClick()">Cancel</button>
+  <button mat-button color="primary" (click)="onYesClick()">Ok</button>
+</mat-dialog-actions>

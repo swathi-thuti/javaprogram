@@ -1,0 +1,18 @@
+<!--<div class="container-fluid px-4" style="text-align: -webkit-center;">
+  <div *ngIf="!global.mainMenu">
+    <app-login></app-login>
+  </div>
+
+  <div *ngIf="global.mainMenu">
+
+ <app-mainpage></app-mainpage>
+</div>
+</div>-->
+
+ <div *ngIf="global.mainMenu; then showMain else showLogin"></div>
+<ng-template #showMain>
+  <app-mainpage></app-mainpage>
+</ng-template>
+<ng-template #showLogin>
+  <app-login></app-login>
+</ng-template>

@@ -1,0 +1,16 @@
+.top-container{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+.button-container{
+    position: relative;
+    float: right;
+    margin-bottom: 2px;
+}
+.heading{
+    margin-left: 5px;
+    float: left;
+    font-size: medium;
+    height: 30px;
+}

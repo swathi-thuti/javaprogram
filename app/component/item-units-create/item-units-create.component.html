@@ -1,0 +1,43 @@
+<div class="container-fluid px-4">
+  <div class="col-sm-12 col-lg-12">
+    <p> Item Units Create page </p>
+    <form [formGroup]="unitsForm">
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <mat-form-field appearance="outline">
+            <input matInput placeholder=" Enter shortCode" formControlName="shortCode" required="required"/>   <!--formControlName="shortCode"-->
+            <mat-label>Short Code</mat-label>
+            <mat-error>short code is required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="Enter Detailed Name"  formControlName="detailedName" required="required"/>
+            <mat-label>Detailed Name</mat-label>
+            <mat-error> description is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="col-md-9 mt-4 text-end-right">
+        <button mat-raised-button color="primary" type="submit" (click)="createUnitsItem()"> Save</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+        <!--
+                <div class="col-md-7 mt-4 text-end">
+        -->
+          <button routerLink="/listItemsUnits" mat-raised-button color="primary" type="submit"> Cancel</button>
+
+        </div>
+      <!--</div>-->
+    </form>
+
+  </div>
+</div>

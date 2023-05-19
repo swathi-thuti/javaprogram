@@ -1,0 +1,51 @@
+<div class="container-fluid px-4">
+  <div class="col-sm-12 col-lg-12">
+    <form [formGroup]="productForm">
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput placeholder="Product Name" formControlName="fullName" required>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput placeholder="Molecular Weight" formControlName="molecularWeight" required>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput placeholder="Item Purity" formControlName="itemPurity" required>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput placeholder="Storage Condition" formControlName="storageCode" required>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Short Code" formControlName="shortCode">
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput placeholder="Additional Info" formControlName="additionalInfo">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput placeholder="Del Flag" formControlName="delFlag" required>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6 mt-4 text-end">
+          <button mat-raised-button color="primary" type="submit" (click)="addProductDetails()">Create Product
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

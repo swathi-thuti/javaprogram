@@ -1,0 +1,10 @@
+.example-spacer {
+  flex: 1 1 auto;
+  background: "blue";
+}
+.mat-toolbar {
+  width: 100%;
+  border: 3px;
+}
+
+

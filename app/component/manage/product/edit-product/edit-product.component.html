@@ -1,0 +1,59 @@
+<div class="container-fluid px-4">
+  <div class="col-sm-12 col-lg-12">
+    <form [formGroup]="productForm" (ngSubmit)="editProductDetails()">
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Short Code" formControlName="shortCode">
+            <mat-error *ngIf="productForm.get('shortCode')?.invalid">Short Code is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput placeholder="Product Name" formControlName="fullName" required>
+            <mat-error *ngIf="productForm.get('fullName')?.invalid">Product Name is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput placeholder="Molecular Weight" formControlName="molecularWeight" required>
+            <mat-error *ngIf="productForm.get('molecularWeight')?.invalid">Molecular Weight is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput placeholder="Item Purity" formControlName="itemPurity" required>
+            <mat-error *ngIf="productForm.get('itemPurity')?.invalid">Item Purity is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput placeholder="Storage Condition" formControlName="storageCode" required>
+            <mat-error *ngIf="productForm.get('storageCode')?.invalid">Storage Condition is required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput placeholder="Additional Info" formControlName="additionalInfo">
+            <mat-error *ngIf="productForm.get('additionalInfo')?.invalid">Additional Info is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput placeholder="Del Flag" formControlName="delFlag" required>
+            <mat-error *ngIf="productForm.get('delFlag')?.invalid">Del Flag is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6 mt-4 text-end">
+          <button mat-raised-button color="primary" type="submit" [disabled]="productForm.invalid">Update Product
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

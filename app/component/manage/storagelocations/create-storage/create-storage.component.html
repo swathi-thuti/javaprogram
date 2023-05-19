@@ -1,0 +1,66 @@
+<!-- <div class ="container-fluid px-4">
+  <div class ="col-sm-12 col-lg-12">
+    <form  [formGroup]="storageForm">
+      <div class="row mt-4" >
+
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput placeholder="Identifcation" formControlName="identificationCode" required>
+            <mat-error> code is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput placeholder="detailedDescription" formControlName="detailedDescription" required>
+            <mat-error> description is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="col-md-3 mt-4 text-end">
+        <button mat-raised-button color="primary" type="submit" (click)="createStorage()"> Save </button>
+        <div class="col-md-7 mt-4 text-end">
+          <button routerLink="/storageList" mat-raised-button color="primary" type="submit" > Cancel </button>
+
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+ -->
+<div class="top-container">
+ <mat-card style="width: 100%;">
+  <mat-card-header >
+    <mat-label>New Storage Location</mat-label>
+    <!-- <mat-card-title>New Storage Location</mat-card-title> -->
+  </mat-card-header>
+  <mat-card-content >
+    <form [formGroup]="storageForm" >
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label  >Short Code</mat-label>
+        <input
+          matInput
+          placeholder="Enter Short Code"
+          formControlName="identificationCode" 
+        />
+      </mat-form-field>
+     <br/>
+      <mat-form-field appearance="fill" style="width: 100%;" >
+        <mat-label>Description</mat-label>
+        <input
+          matInput
+          placeholder="Enter Description"
+          formControlName="detailedDescription" style="width: 80%;"
+        />
+      </mat-form-field>
+      <br />
+      <div class="buttons-container" >
+      <button mat-raised-button color="primary" onclick="createStorage()">Save</button>
+       
+      <button mat-raised-button color="primary" onclick="">Cancel</button>
+    </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+</div>
